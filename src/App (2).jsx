@@ -501,15 +501,15 @@ export default function App() {
 
   /* ── RENDER ─────────────────────────────────────────────── */
   return (
-    <div style={{maxWidth:460,margin:"0 auto",minHeight:"100vh",background:C.bg0,color:C.text,fontFamily:"'Noto Sans TC',sans-serif",paddingBottom:100}}>
+    <div style={{maxWidth:460,margin:"0 auto",minHeight:"100vh",background:C.bg0,color:C.text,fontFamily:"'Noto Sans TC',sans-serif",paddingBottom:"calc(100px + env(safe-area-inset-bottom, 0px))"}}>
       <style>{globalCss}</style>
-      {toast&&<div style={{position:"fixed",top:58,left:"50%",transform:"translateX(-50%)",background:C.bg2,color:C.text,padding:"9px 20px",borderRadius:20,fontSize:12,zIndex:999,border:`1px solid ${C.border}`,boxShadow:`0 4px 24px rgba(0,0,0,.6)`,whiteSpace:"nowrap",fontFamily:"monospace",letterSpacing:.5}}>{toast}</div>}
+      {toast&&<div style={{position:"fixed",top:"calc(58px + env(safe-area-inset-top, 0px))",left:"50%",transform:"translateX(-50%)",background:C.bg2,color:C.text,padding:"9px 20px",borderRadius:20,fontSize:12,zIndex:999,border:`1px solid ${C.border}`,boxShadow:`0 4px 24px rgba(0,0,0,.6)`,whiteSpace:"nowrap",fontFamily:"monospace",letterSpacing:.5}}>{toast}</div>}
       {lightbox&&<Lightbox shots={lightbox.shots} startIndex={lightbox.idx} onClose={()=>setLightbox(null)}/>}
       {showCap&&<CapitalModal capital={capital} onSave={setCapital} onClose={()=>setShowCap(false)}/>}
       {showExp&&<ExportModal records={records} capital={capital} onClose={()=>setShowExp(false)}/>}
 
       {/* ── HEADER ── */}
-      <header style={{background:C.bg0,borderBottom:`1px solid ${C.border}`,position:"sticky",top:0,zIndex:20,padding:"0 16px"}}>
+      <header style={{background:C.bg0,borderBottom:`1px solid ${C.border}`,position:"sticky",top:0,zIndex:20,padding:"0 16px",paddingTop:"env(safe-area-inset-top, 0px)"}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",height:54}}>
 
           {/* ── EDGR LOGO MARK ── */}
@@ -990,7 +990,7 @@ export default function App() {
 
       {/* FAB */}
       {view!=="add"&&(
-        <button className="fab" style={{position:"fixed",bottom:24,left:"50%",transform:"translateX(-50%)",width:54,height:54,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},#b8860b)`,color:C.bg0,fontSize:26,border:"none",cursor:"pointer",boxShadow:`0 4px 28px rgba(212,168,71,.45)`,display:"flex",alignItems:"center",justifyContent:"center",zIndex:50,fontWeight:700,lineHeight:1}}
+        <button className="fab" style={{position:"fixed",bottom:"calc(24px + env(safe-area-inset-bottom, 0px))",left:"50%",transform:"translateX(-50%)",width:54,height:54,borderRadius:"50%",background:`linear-gradient(135deg,${C.gold},#b8860b)`,color:C.bg0,fontSize:26,border:"none",cursor:"pointer",boxShadow:`0 4px 28px rgba(212,168,71,.45)`,display:"flex",alignItems:"center",justifyContent:"center",zIndex:50,fontWeight:700,lineHeight:1}}
           onClick={()=>{setForm(makeForm());setEditId(null);setView("add");}}>+</button>
       )}
     </div>
